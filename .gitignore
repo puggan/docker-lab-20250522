@@ -1,5 +1,6 @@
 /auth/*.key
 /auth/node_modules/
 /auth/users.db
+/gateway/.venv/
 /quotebox/listen
 /quotebox/quote
