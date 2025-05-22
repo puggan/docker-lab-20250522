@@ -19,8 +19,8 @@ app.get('/login', (req, res) => {
 });
 
 // First endpoint: POST /endpoint1
-app.post('/login', (req, res) => {
-    if (!auth(req.body.username, req.body.password)) {
+app.post('/login', async (req, res) => {
+    if (!await auth(req.body.username, req.body.password)) {
         return res.status(403).type('text/plain').send('Invalid user');
     }
     return res.type('text/plain').send(jwt(req.body.username, false));
@@ -32,8 +32,8 @@ app.get('/expired', (req, res) => {
 });
 
 // Second endpoint: POST /endpoint2
-app.post('/expired', (req, res) => {
-    if (!auth(req.body.username, req.body.password)) {
+app.post('/expired', async (req, res) => {
+    if (!await auth(req.body.username, req.body.password)) {
         return res.status(403).type('text/plain').send('Invalid user');
     }
     return res.type('text/plain').send(jwt(req.body.username, true));
