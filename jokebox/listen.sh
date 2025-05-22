@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+set -e
 cd -- "$(dirname -- "$0")"
 PORT=${1:-8080}
 echo "Listening to port:" $PORT

@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+set -e
 cd -- "$(dirname -- "$0")"
 if [ -f "users.db" ]; then
     exit 1
