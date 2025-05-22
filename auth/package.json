@@ -1,0 +1,23 @@
+{
+  "name": "docker-lab-auth",
+  "version": "0.0.1",
+  "description": "Microservice that checks a sqlite-db and returns a JWT token",
+  "main": "auth.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/puggan/docker-lab-20250522.git"
+  },
+  "author": "Thorbjörn Puggan Sundragon <puggan@sundragon.se>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/puggan/docker-lab-20250522/issues"
+  },
+  "homepage": "https://github.com/puggan/docker-lab-20250522#readme",
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "express": "^5.1.0"
+  }
+}
