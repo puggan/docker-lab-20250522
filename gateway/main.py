@@ -6,7 +6,7 @@ from functools import wraps
 app = Flask(__name__)
 
 
-with open('../auth/jwt-public.key', 'rb') as f:
+with open('./jwt-public.key', 'rb') as f:
     public_key = f.read()
 
 # Decorator to verify JWT token

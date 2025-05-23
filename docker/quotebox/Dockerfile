@@ -8,4 +8,3 @@ FROM alpine
 COPY --from=build-env /app/listen /app/listen
 WORKDIR /app
 CMD ["/app/listen"] 
-EXPOSE 8080
