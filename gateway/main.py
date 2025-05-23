@@ -44,7 +44,7 @@ def proxyAuthGet():
 @app.route('/auth', methods=['POST'])
 def proxyAuthPost():
     response = requests.post('http://auth:8080/login', data=request.get_data(), headers=request.headers)
-    return Response(response.content, status=response.status_code, content_type=response.headers['Content-Type'])
+    return Response(response.content, status=response.status_code, content_type="text/plain")
 
 @app.route('/expired', methods=['GET'])
 def proxyExpiredGet():
@@ -54,20 +54,20 @@ def proxyExpiredGet():
 @app.route('/expired', methods=['POST'])
 def proxyExpiredPost():
     response = requests.post('http://auth:8080/expired', data=request.get_data(), headers=request.headers)
-    return Response(response.content, status=response.status_code, content_type=response.headers['Content-Type'])
+    return Response(response.content, status=response.status_code, content_type="text/plain")
 
 
 @app.route('/joke', methods=['GET', 'POST'])
 @jwtAuth
-def joke():
+def joke(token=None):
     response = requests.get('http://jokebox:8080')
-    return Response(response.content, status=response.status_code, content_type=response.headers['Content-Type'])
+    return Response(response.content, status=response.status_code, content_type="text/plain")
 
 @app.route('/quote', methods=['GET', 'POST'])
 @jwtAuth
-def quote():
+def quote(token=None):
     response = requests.get('http://quotebox:8080')
-    return Response(response.content, status=response.status_code, content_type=response.headers['Content-Type'])
+    return Response(response.content, status=response.status_code, content_type="text/plain")
 
 if __name__ == '__main__':
     port = 8080
