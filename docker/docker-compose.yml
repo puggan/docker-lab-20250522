@@ -7,8 +7,6 @@ services:
     volumes:
       - ../auth/jwt-private.key:/app/jwt-private.key
       - ../auth/users.db:/app/users.db
-    ports:
-      - "8081:8080"
     restart: always
 
   jokebox:
@@ -18,8 +16,6 @@ services:
     image: jokebox
     volumes:
       - ../jokebox/jokes:/app/jokes
-    ports:
-      - "8082:8080"
     restart: always
 
   quotebox:
@@ -29,8 +25,6 @@ services:
     image: quotebox
     volumes:
       - ../quotebox/quotes:/app/quotes
-    ports:
-      - "8083:8080"
     restart: always
 
   gateway:
