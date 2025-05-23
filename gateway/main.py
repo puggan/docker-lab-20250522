@@ -32,6 +32,10 @@ def jwtAuth(endpoint):
     return decorator
 
 
+@app.route('/', methods=['GET'])
+def welcome():
+    return Response("<h1>Welcome</h1><p>endpoints: /auth, /expired, /joke, /quote</p>", status=200, content_type="text/html")
+
 @app.route('/auth', methods=['GET'])
 def proxyAuthGet():
     response = requests.get('http://auth:8080/login')
