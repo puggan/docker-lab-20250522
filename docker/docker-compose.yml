@@ -1,0 +1,45 @@
+services:
+  auth:
+    build:
+      context: ..
+      dockerfile: docker/auth/Dockerfile
+    image: auth
+    volumes:
+      - ../auth/jwt-private.key:/app/jwt-private.key
+      - ../auth/users.db:/app/users.db
+    ports:
+      - "8081:8080"
+    restart: always
+
+  jokebox:
+    build:
+      context: ..
+      dockerfile: docker/jokebox/Dockerfile
+    image: jokebox
+    volumes:
+      - ../jokebox/jokes:/app/jokes
+    ports:
+      - "8082:8080"
+    restart: always
+
+  quotebox:
+    build:
+      context: ..
+      dockerfile: docker/quotebox/Dockerfile
+    image: quotebox
+    volumes:
+      - ../quotebox/quotes:/app/quotes
+    ports:
+      - "8083:8080"
+    restart: always
+
+  gateway:
+    build:
+      context: ..
+      dockerfile: docker/gateway/Dockerfile
+    image: gateway
+    volumes:
+      - ../auth/jwt-public.key:/app/jwt-public.key
+    ports:
+      - "8080:8080"
+    restart: always
