@@ -75,4 +75,4 @@ if __name__ == '__main__':
     port = 8080
     if len(sys.argv) > 1:
         port = int(sys.argv[1])  # Try to parse the port from argv
-    app.run(debug=True, port=port)
+    app.run(debug=True, port=port, host='0.0.0.0')
