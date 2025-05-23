@@ -43,8 +43,7 @@ def proxyAuthGet():
 
 @app.route('/auth', methods=['POST'])
 def proxyAuthPost():
-    data = request.get_data()
-    response = requests.post('http://auth:8080/login', data=data)
+    response = requests.post('http://auth:8080/login', data=request.get_data(), headers=request.headers)
     return Response(response.content, status=response.status_code, content_type=response.headers['Content-Type'])
 
 @app.route('/expired', methods=['GET'])
@@ -54,8 +53,7 @@ def proxyExpiredGet():
 
 @app.route('/expired', methods=['POST'])
 def proxyExpiredPost():
-    data = request.get_data()
-    response = requests.post('http://auth:8080/expired', data=data)
+    response = requests.post('http://auth:8080/expired', data=request.get_data(), headers=request.headers)
     return Response(response.content, status=response.status_code, content_type=response.headers['Content-Type'])
 
 
