@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jokebox-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jokebox
+  template:
+    metadata:
+      labels:
+        app: jokebox
+    spec:
+      containers:
+        - name: jokebox
+          image: jokebox
+          volumeMounts:
+            - name: jokes
+              mountPath: /app/jokes
+              readOnly: true
+      volumes:
+        - name: jokes
+          hostPath:
+            path: jokebox/jokes
+            type: Directory

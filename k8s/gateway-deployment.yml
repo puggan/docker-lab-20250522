@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gateway-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gateway
+  template:
+    metadata:
+      labels:
+        app: gateway
+    spec:
+      containers:
+        - name: gateway
+          image: gateway
+          volumeMounts:
+            - name: jwt-public-key
+              mountPath: /app/jwt-public.key
+              subPath: jwt-public.key
+          ports:
+            - containerPort: 8080
+      volumes:
+        - name: jwt-public-key
+          hostPath:
+            path: auth/jwt-puplic.key
+            type: File

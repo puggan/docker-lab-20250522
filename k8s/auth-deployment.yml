@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auth-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: auth
+  template:
+    metadata:
+      labels:
+        app: auth
+    spec:
+      containers:
+        - name: auth
+          image: auth
+          volumeMounts:
+            - name: jwt-private-key
+              mountPath: /app/jwt-private.key
+              subPath: jwt-private.key
+            - name: users-db
+              mountPath: /app/users.db
+              subPath: users.db
+      volumes:
+        - name: jwt-private-key
+          hostPath:
+            path: /path/to/auth/jwt-private.key
+            type: File
+        - name: users-db
+          hostPath:
+            path: /path/to/auth/users.db
+            type: File

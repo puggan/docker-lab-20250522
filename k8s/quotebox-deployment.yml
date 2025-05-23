@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: quotebox-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: quotebox
+  template:
+    metadata:
+      labels:
+        app: quotebox
+    spec:
+      containers:
+        - name: quotebox
+          image: quotebox
+          volumeMounts:
+            - name: quotes
+              mountPath: /app/quotes
+      volumes:
+        - name: quotes
+          hostPath:
+            path: quotebox/quotes
+            type: Directory
