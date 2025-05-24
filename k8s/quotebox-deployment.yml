@@ -19,8 +19,8 @@ spec:
           volumeMounts:
             - name: quotes
               mountPath: /app/quotes
+              readOnly: true
       volumes:
         - name: quotes
-          hostPath:
-            path: quotebox/quotes
-            type: Directory
+          configMap:
+            name: quotebox-quotes

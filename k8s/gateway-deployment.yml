@@ -20,10 +20,10 @@ spec:
             - name: jwt-public-key
               mountPath: /app/jwt-public.key
               subPath: jwt-public.key
+              readOnly: true
           ports:
             - containerPort: 8080
       volumes:
         - name: jwt-public-key
-          hostPath:
-            path: auth/jwt-puplic.key
-            type: File
+          configMap:
+            name: jwt-public-key

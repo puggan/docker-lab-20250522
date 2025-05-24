@@ -22,6 +22,5 @@ spec:
               readOnly: true
       volumes:
         - name: jokes
-          hostPath:
-            path: jokebox/jokes
-            type: Directory
+          configMap:
+             name: jokebox-jokes

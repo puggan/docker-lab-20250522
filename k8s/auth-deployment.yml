@@ -20,15 +20,15 @@ spec:
             - name: jwt-private-key
               mountPath: /app/jwt-private.key
               subPath: jwt-private.key
+              readOnly: true
             - name: users-db
               mountPath: /app/users.db
               subPath: users.db
+              readOnly: true
       volumes:
         - name: jwt-private-key
-          hostPath:
-            path: /path/to/auth/jwt-private.key
-            type: File
+          secret:
+            secretName: jwt-private-key
         - name: users-db
-          hostPath:
-            path: /path/to/auth/users.db
-            type: File
+          secret:
+            secretName: users-db
