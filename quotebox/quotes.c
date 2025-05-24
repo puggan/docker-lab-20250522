@@ -19,7 +19,7 @@ struct dirent quoteFile()
     int index = 0;
     struct dirent *file;
     while ((file = readdir(directory)) != NULL) {
-        if (file->d_type != DT_REG) {
+        if (file->d_type == DT_DIR) {
             continue;
         }
         if (rand() % (index + 1) == 0) {
