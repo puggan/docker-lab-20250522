@@ -6,7 +6,7 @@
 int main(void)
 {
     char content[1000000];
-    struct dirent file = qouteFile();
+    struct dirent file = quoteFile();
     chdir("quotes/");
     FILE *fileReference = fopen(file.d_name, "r");
     size_t length = fread(content, 1, sizeof(content), fileReference);

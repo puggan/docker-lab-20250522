@@ -4,7 +4,7 @@
 #include <time.h>
 #include "quotes.h"
 
-struct dirent qouteFile()
+struct dirent quoteFile()
 {
     struct dirent selectedFile;
 

@@ -20,7 +20,7 @@ void quoteReply(int socketReference)
 {
     const char *message = "HTTP/1.1 200 ok\r\nContent-type: text/plain\r\n\r\n";
     send(socketReference, message, strlen(message), 0);
-    struct dirent file = qouteFile();
+    struct dirent file = quoteFile();
     chdir("quotes/");
     FILE *fileReference = fopen(file.d_name, "r");
     char content[1000000];
