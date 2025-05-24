@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: jokebox
-          image: jokebox
+          image: puggan/docker-lab-20250522-jokebox
           volumeMounts:
             - name: jokes
               mountPath: /app/jokes

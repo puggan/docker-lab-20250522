@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: quotebox
-          image: quotebox
+          image: puggan/docker-lab-20250522-quotebox
           volumeMounts:
             - name: quotes
               mountPath: /app/quotes

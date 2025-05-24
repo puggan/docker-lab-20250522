@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: gateway
-          image: gateway
+          image: puggan/docker-lab-20250522-gateway
           volumeMounts:
             - name: jwt-public-key
               mountPath: /app/jwt-public.key

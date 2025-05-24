@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: auth
-          image: auth
+          image: puggan/docker-lab-20250522-auth
           volumeMounts:
             - name: jwt-private-key
               mountPath: /app/jwt-private.key
