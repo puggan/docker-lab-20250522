@@ -32,8 +32,24 @@
 
 * cd ..
 
-## test it (docker-composer)
+## start up k8s
 
-* bash test.sh
+* (if changed) run build.sh (requires access to puggan's docker-repo)
 
+* run k8s.sh to apply the k8s files, also sets up the configMaps to handle the relative paths
 
+## test it
+
+* bash test.sh (agains port 8080 aka the docker-compose version)
+
+* bash test-k8s.sh (agains port 30080 aka the k8s-node-port version)
+
+* bash test-ingress.sh (agains port 80 aka the k8s-ingress version)
+
+## Known Issues
+
+* jokebox have no fork, so requests is handled one by one
+
+* quotebox have no fork, so requests is handled one by one
+
+* the auth support hashed password, but there is no tool supplied to add hashed passwords, so the demo acount uses plain-text passwords
